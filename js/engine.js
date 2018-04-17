@@ -79,7 +79,17 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+    }
+
+    function checkCollisions(){
+      allEnemies.forEach(enemy => {
+      //verify if our horn girl still alive
+      if (player.x >= (enemy.x - (enemy.width/2)) && player.x <= (enemy.x + (enemy.width/2))
+      &&  player.y >= ( enemy.y - (enemy.height)) && player.y <= (enemy.y + (enemy.height/2))) {
+        player.newGame();
+      }
+    });
     }
 
     /* This is called by the update function and loops through all of the

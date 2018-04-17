@@ -1,3 +1,4 @@
+
 //function to set speed
 let setSpeed = function (){
   return Math.floor((Math.random() * 280) + 80);
@@ -20,12 +21,8 @@ let Enemy = function(y) {
 
 //update our bloody insects
 Enemy.prototype.update = function(dt) {
-  //verify if our horn girl still alive
-  if (player.x >= (this.x - (this.width/2)) && player.x <= (this.x + (this.width/2))
-  &&  player.y >= ( this.y - (this.height)) && player.y <= (this.y + (this.height/2))) {
-    player.newGame();
   //keep moving the bugs
-  }else if(this.x <= 500){
+  if(this.x <= 500){
     this.x += this.speed * dt;
   /*if the evil bug crossed the screen, reset his speed to a new random one,
   and set it to initial bugspot*/
@@ -92,8 +89,8 @@ Player.prototype.handleInput = function(e) {
 
 //move our girl to her initial place
 Player.prototype.newGame = function() {
-  player.x = 203;
-  player.y = 380;
+  this.x = 203;
+  this.y = 380;
 };
 
 //create the hord of bugs
